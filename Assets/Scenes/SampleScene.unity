@@ -1276,6 +1276,7 @@ GameObject:
   - component: {fileID: 618109317}
   - component: {fileID: 618109318}
   - component: {fileID: 618109319}
+  - component: {fileID: 618109320}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1333,6 +1334,19 @@ MonoBehaviour:
   prizeItemsParant: {fileID: 1557571751}
   prizeItemPrefab: {fileID: 2156019430949476186, guid: 0c1bdaf07aad41b4fb03c6fa054c1448, type: 3}
   prizeItems: []
+--- !u!114 &618109320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618109316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8370855ced8817944a18f7a3cf3f749b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowGameStatus: 0
 --- !u!1 &625706786
 GameObject:
   m_ObjectHideFlags: 0

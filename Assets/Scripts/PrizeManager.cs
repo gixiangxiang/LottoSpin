@@ -38,6 +38,15 @@ public class PrizeManager : MonoBehaviour
 
   public void AddPrize()
   {
-    Instantiate(prizeItemPrefab, prizeItemsParant);
+    if (prizeItemsParant.childCount < 12)
+    {
+      Instantiate(prizeItemPrefab, prizeItemsParant);
+      RefreshPrizeList();
+    }
+    else
+    {
+      Debug.Log("最多12項獎品");
+    }
+
   }
 }

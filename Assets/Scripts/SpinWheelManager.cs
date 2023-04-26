@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpinWheelManager : MonoBehaviour
 {
-    
+
   public Image[] pieImages;
   public float[] values;
 
@@ -13,15 +13,15 @@ public class SpinWheelManager : MonoBehaviour
   {
     SetValue(values);
   }
-  
+
 
   public void SetValue(float[] valuesToSet)
   {
     float totalValues = 0;
     for (int i = 0; i < pieImages.Length; i++)
     {
-      totalValues += FindPercentage(valuesToSet,i);
-      pieImages[i].fillAmount=totalValues;
+      totalValues += FindPercentage(valuesToSet, i);
+      pieImages[i].fillAmount = totalValues;
     }
   }
 
@@ -32,6 +32,16 @@ public class SpinWheelManager : MonoBehaviour
     {
       totalAmount += valuesToSet[i];
     }
-    return valuesToSet[index]/totalAmount;
+    return valuesToSet[index] / totalAmount;
+    /*
+    if (totalAmount == 100)
+    {
+      return valuesToSet[index] / totalAmount;
+    }
+    else
+    {
+
+    }
+    */
   }
 }

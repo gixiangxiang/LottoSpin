@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2684815784679832741}
   - component: {fileID: 2684815784679832742}
   - component: {fileID: 2684815784679832743}
+  - component: {fileID: 2156019430949476186}
   m_Layer: 5
   m_Name: InputFieldPrefab
   m_TagString: Untagged
@@ -218,7 +219,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2156019430949476186}
+        m_TargetAssemblyTypeName: PrizeItemPrefab, Assembly-CSharp
+        m_MethodName: RefreshList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -227,6 +240,19 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!114 &2156019430949476186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684815784679832737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b346b47d72ade3646adec2ba35942632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prizeName: {fileID: 2684815784679832743}
 --- !u!1 &2684815785760155867
 GameObject:
   m_ObjectHideFlags: 0

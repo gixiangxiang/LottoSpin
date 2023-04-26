@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     result
   }
   public static GameManager gm;
+  public EventContoller eventCtrl;
   [Header("當前遊戲狀態")]
   [SerializeField] Status nowGameStatus;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
       case Status.setPrize:
         nowGameStatus = Status.setPrize;
+        eventCtrl.SetPrize_Event();
         break;
       case Status.setPrizeRatio:
         nowGameStatus = Status.setPrizeRatio;

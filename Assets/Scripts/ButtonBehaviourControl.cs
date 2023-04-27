@@ -33,7 +33,13 @@ public class ButtonBehaviourControl : MonoBehaviour
   {
     GameManager.gm.Call_ChangeGameState(GameManager.Status.setPrize);
     PrizeManager.prizeMana.DestroyRatioChild();
+  }
 
+  public void AverageRatio()
+  {
+    PrizeManager.prizeMana.DestroyRatioChild();
+    PrizeManager.prizeMana.RefreshPrizeList();
+    PrizeManager.prizeMana.SetRatioItem();
   }
 
   #endregion

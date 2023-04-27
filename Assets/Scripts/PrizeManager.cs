@@ -115,7 +115,6 @@ public class PrizeManager : MonoBehaviour
     if (sum != 100)
     {
       float diff = 100 - sum;
-
       for (int i = 0; i < ratios.Length; i++)
       {
         if (i == ratios.Length - 1)
@@ -125,7 +124,6 @@ public class PrizeManager : MonoBehaviour
         }
       }
     }
-
 
   }
 }

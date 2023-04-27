@@ -32,6 +32,7 @@ public class ButtonBehaviourControl : MonoBehaviour
   public void RatioCancel()
   {
     GameManager.gm.Call_ChangeGameState(GameManager.Status.setPrize);
+    PrizeManager.prizeMana.DestroyRatioChild();
 
   }
 

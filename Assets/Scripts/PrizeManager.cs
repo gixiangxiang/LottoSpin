@@ -30,7 +30,7 @@ public class PrizeManager : MonoBehaviour
   {
     prizeMana = this;
   }
-
+  //更新獎品資訊
   public void RefreshPrizeList()
   {
     prizeItems = new List<PrizeItem>();
@@ -56,7 +56,7 @@ public class PrizeManager : MonoBehaviour
       }
     }
   }
-
+  //新增獎品資料
   public void AddPrize()
   {
     if (prizeItemsParant.childCount < 12)
@@ -71,13 +71,61 @@ public class PrizeManager : MonoBehaviour
 
   }
 
+  //設置比例物件
   public void SetRatioItem()
   {
+
     foreach (PrizeItem prize in prizeItems)
     {
       ratioItemPrefab.prizeName.text = prize.prizeName;
       ratioItemPrefab.ratio.text = (prize.ratio * 100f).ToString();
-      Instantiate(ratioItemPrefab, ratioItemsParant);
+      PrizeItemPrefab prefab = Instantiate(ratioItemPrefab, ratioItemsParant);
+      prefab.ratio.onValueChanged.AddListener(delegate { RatioRefreah(); });
     }
+  }
+
+  public void DestroyRatioChild()
+  {
+    if (ratioItemsParant.childCount > 0)
+    {
+      PrizeItemPrefab[] child = ratioItemsParant.GetComponentsInChildren<PrizeItemPrefab>();
+      foreach (PrizeItemPrefab obj in child)
+      {
+        Destroy(obj.gameObject);
+      }
+    }
+  }
+  //更新比例清單
+  public void RatioRefreah()
+  {
+    //獲取所有InputField物件
+    PrizeItemPrefab[] ratioItems = ratioItemsParant.GetComponentsInChildren<PrizeItemPrefab>();
+    InputField[] ratios = new InputField[ratioItems.Length];
+    for (int i = 0; i < ratioItems.Length; i++)
+    {
+      ratios[i] = ratioItems[i].ratio;
+    }
+
+    //整合比例數字
+    float sum = 0;
+    foreach (InputField ratio in ratios)
+    {
+      sum += float.Parse(ratio.text);
+    }
+    if (sum != 100)
+    {
+      float diff = 100 - sum;
+
+      for (int i = 0; i < ratios.Length; i++)
+      {
+        if (i == ratios.Length - 1)
+        {
+          float newValue = float.Parse(ratios[i].text) + diff;
+          ratios[i].text = newValue.ToString();
+        }
+      }
+    }
+
+
   }
 }

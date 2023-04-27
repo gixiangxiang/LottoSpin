@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
   {
     gm = this;
   }
+  void Start()
+  {
+    Call_ChangeGameState(Status.setPrize);    
+  }
 
   public void Call_ChangeGameState(Status currentGameState) //外部呼叫-----改變流程
   {
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour
         break;
       case Status.setPrizeRatio:
         nowGameStatus = Status.setPrizeRatio;
+        eventCtrl.SetRatio_Event();
         break;
       case Status.game:
         nowGameStatus = Status.setPrize;

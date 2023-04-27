@@ -7,8 +7,8 @@ public class PrizeItemPrefab : MonoBehaviour
 {
   public enum PrizePrefabType
   {
-    settingPrefab,
-    ratioPrefab
+    設定面板預置物,
+    比例面板預置物
   }
 
   public PrizePrefabType prefabType;

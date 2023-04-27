@@ -34,13 +34,26 @@ public class PrizeManager : MonoBehaviour
   public void RefreshPrizeList()
   {
     prizeItems = new List<PrizeItem>();
+    float totalRatio = 0;
     for (int i = 0; i < prizeItemsParant.childCount; i++)
     {
-      prizeItems.Add(new PrizeItem
+      if (i == prizeItemsParant.childCount - 1)
       {
-        prizeName = prizeItemsParant.GetComponentsInChildren<PrizeItemPrefab>()[i].prizeNameIpt.text,
-        ratio = 1f / (float)prizeItemsParant.childCount
-      });
+        prizeItems.Add(new PrizeItem
+        {
+          prizeName = prizeItemsParant.GetComponentsInChildren<PrizeItemPrefab>()[i].prizeNameIpt.text,
+          ratio = 1f - totalRatio
+        });
+      }
+      else
+      {
+        prizeItems.Add(new PrizeItem
+        {
+          prizeName = prizeItemsParant.GetComponentsInChildren<PrizeItemPrefab>()[i].prizeNameIpt.text,
+          ratio = float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F2"))
+        });
+        totalRatio += float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F2"));
+      }
     }
   }
 
@@ -62,8 +75,8 @@ public class PrizeManager : MonoBehaviour
   {
     foreach (PrizeItem prize in prizeItems)
     {
-      ratioItemPrefab.prizeName.text=prize.prizeName;
-      ratioItemPrefab.ratio.text=(prize.ratio*100f).ToString();
+      ratioItemPrefab.prizeName.text = prize.prizeName;
+      ratioItemPrefab.ratio.text = (prize.ratio * 100f).ToString();
       Instantiate(ratioItemPrefab, ratioItemsParant);
     }
   }

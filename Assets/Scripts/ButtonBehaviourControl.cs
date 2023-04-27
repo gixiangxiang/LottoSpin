@@ -38,10 +38,8 @@ public class ButtonBehaviourControl : MonoBehaviour
   public void AverageRatio()
   {
     PrizeManager.prizeMana.DestroyRatioChild();
-    PrizeManager.prizeMana.RefreshPrizeList();
     PrizeManager.prizeMana.SetRatioItem();
   }
-
   #endregion
 
 

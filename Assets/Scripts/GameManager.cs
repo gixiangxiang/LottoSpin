@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
   public static GameManager gm;
   public EventContoller eventCtrl;
   [Header("當前遊戲狀態")]
-  [SerializeField] Status nowGameStatus;
+  public Status nowGameStatus;
 
   void Awake()
   {

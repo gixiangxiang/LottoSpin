@@ -5,22 +5,20 @@ using UnityEngine.UI;
 
 public class ButtonBehaviourControl : MonoBehaviour
 {
-  [Header("----設定獎品面板----")]
-  [Header("Prize Manager")]
-  public PrizeManager prizeMana;
-
+  // [Header("----設定獎品面板----")]
 
   #region 設定獎品面板
   //增加獎品按鈕
   public void AddPrize()
   {
-    prizeMana.AddPrize();
+    PrizeManager.prizeMana.AddPrize();
   }
   //確認按鈕
   public void SettingConfirm()
   {
     GameManager.gm.Call_ChangeGameState(GameManager.Status.setPrizeRatio);
-    prizeMana.RefreshPrizeList();
+    PrizeManager.prizeMana.RefreshPrizeList();
+    PrizeManager.prizeMana.SetRatioItem();
   }
 
 

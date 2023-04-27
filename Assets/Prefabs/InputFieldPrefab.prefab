@@ -252,7 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b346b47d72ade3646adec2ba35942632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prizeName: {fileID: 2684815784679832743}
+  prefabType: 0
+  prizeName: {fileID: 0}
+  prizeNameIpt: {fileID: 2684815784679832743}
+  ratio: {fileID: 0}
 --- !u!1 &2684815785760155867
 GameObject:
   m_ObjectHideFlags: 0

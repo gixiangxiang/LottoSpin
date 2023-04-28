@@ -13,6 +13,13 @@ public class ButtonBehaviourControl : MonoBehaviour
   {
     PrizeManager.prizeMana.AddPrize();
   }
+
+  //移除獎品按鈕
+  public void RemovePrize()
+  {
+    PrizeManager.prizeMana.RemovePrize();
+    // PrizeManager.prizeMana.RefreshPrizeList();
+  }
   //確認按鈕
   public void SettingConfirm()
   {

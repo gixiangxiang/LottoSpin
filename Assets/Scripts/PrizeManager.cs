@@ -18,6 +18,8 @@ public class PrizeManager : MonoBehaviour
   public Transform prizeItemsParant;
   [Header("獎品清單預置物")]
   public PrizeItemPrefab prizeItemPrefab;
+  [Header("警告標語")]
+  [SerializeField] Text warningTxt;
   [Header("比例清單父物件")]
   public Transform ratioItemsParant;
   [Header("比例清單預置物")]
@@ -50,9 +52,9 @@ public class PrizeManager : MonoBehaviour
         prizeItems.Add(new PrizeItem
         {
           prizeName = prizeItemsParant.GetComponentsInChildren<PrizeItemPrefab>()[i].prizeNameIpt.text,
-          ratio = float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F2"))
+          ratio = float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F4"))
         });
-        totalRatio += float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F2"));
+        totalRatio += float.Parse((1f / (float)prizeItemsParant.childCount).ToString("F4"));
       }
     }
   }
@@ -66,24 +68,40 @@ public class PrizeManager : MonoBehaviour
     }
     else
     {
-      Debug.Log("最多12項獎品");
+      warningTxt.text = "最多12個獎品";
+      StartCoroutine(ShowAndHide(warningTxt.gameObject,2f));
     }
 
+  }
+
+  //移除獎品
+  public void RemovePrize()
+  {
+    if (prizeItemsParant.childCount > 2)
+    {
+      PrizeItemPrefab[] child = prizeItemsParant.GetComponentsInChildren<PrizeItemPrefab>();
+      Destroy(child[prizeItemsParant.childCount - 1].gameObject);
+    }
+    else
+    {
+      warningTxt.text = "最少2個獎品";
+      StartCoroutine(ShowAndHide(warningTxt.gameObject,2f));
+    }
   }
 
   //設置比例物件
   public void SetRatioItem()
   {
-
     foreach (PrizeItem prize in prizeItems)
     {
       ratioItemPrefab.prizeName.text = prize.prizeName;
-      ratioItemPrefab.ratio.text = (prize.ratio * 100f).ToString();
+      ratioItemPrefab.ratio.text = (prize.ratio * 100f).ToString("F2");
       PrizeItemPrefab prefab = Instantiate(ratioItemPrefab, ratioItemsParant);
-      prefab.ratio.onValueChanged.AddListener(delegate { RatioRefreah(); });
+      prefab.ratio.onEndEdit.AddListener(delegate { RatioRefreah(); });
     }
   }
 
+  //刪除比例物件
   public void DestroyRatioChild()
   {
     if (ratioItemsParant.childCount > 0)
@@ -126,4 +144,13 @@ public class PrizeManager : MonoBehaviour
     }
 
   }
+  //通知訊息的顯示與隱藏
+  IEnumerator ShowAndHide(GameObject obj, float delay)
+  {
+    obj.SetActive(true);
+    yield return new WaitForSeconds(delay);
+    obj.SetActive(false);
+  }
+
+
 }

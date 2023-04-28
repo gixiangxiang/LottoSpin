@@ -40,10 +40,11 @@ public class GameManager : MonoBehaviour
         eventCtrl.SetRatio_Event();
         break;
       case Status.game:
-        nowGameStatus = Status.setPrize;
+        nowGameStatus = Status.game;
+        eventCtrl.StartGame_Event();
         break;
       case Status.rolling:
-        nowGameStatus = Status.game;
+        nowGameStatus = Status.rolling;
         break;
       case Status.stop:
         nowGameStatus = Status.stop;

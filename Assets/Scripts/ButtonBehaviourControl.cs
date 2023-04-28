@@ -49,5 +49,22 @@ public class ButtonBehaviourControl : MonoBehaviour
   }
   #endregion
 
+  #region 遊戲面板
+  public void StartSpin()
+  {
+
+  }
+  public void StopSpin()
+  {
+
+  }
+
+  public void Back()
+  {
+    GameManager.gm.Call_ChangeGameState(GameManager.Status.setPrizeRatio);
+  }
+
+  #endregion
+
 
 }

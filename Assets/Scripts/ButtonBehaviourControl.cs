@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonBehaviourControl : MonoBehaviour
 {
-  // [Header("----設定獎品面板----")]
+  
 
   #region 設定獎品面板
   //增加獎品按鈕
@@ -27,9 +27,8 @@ public class ButtonBehaviourControl : MonoBehaviour
     PrizeManager.prizeMana.RefreshPrizeList();
     PrizeManager.prizeMana.SetRatioItem();
   }
-
-
   #endregion
+
 
   #region 設定比例面板
   public void RatioConfirm()
@@ -49,14 +48,15 @@ public class ButtonBehaviourControl : MonoBehaviour
   }
   #endregion
 
+
   #region 遊戲面板
   public void StartSpin()
   {
-
+    GameManager.gm.Call_ChangeGameState(GameManager.Status.rolling);
   }
   public void StopSpin()
   {
-
+    GameManager.gm.Call_ChangeGameState(GameManager.Status.stop);
   }
 
   public void Back()

@@ -5,19 +5,25 @@ using UnityEngine;
 public class SpinDish : MonoBehaviour
 {
   // 設定旋轉速度和計時器
+  [Header("轉速")]
   [SerializeField] float rotationSpeed = 50f;
+  [Header("減速最小值")]
   [SerializeField] float slowRatioMin = 3f;
+  [Header("減速最大值")]
   [SerializeField] float slowRatioMax = 3f;
-  [SerializeField] float timer = 3f;
+  [SerializeField] float timer = 3f;//停止時間
+  public bool stop;
+
 
   void Start()
   {
-    StartCoroutine(RotateObject());
+    timer = Mathf.Floor(Random.Range(10f, 13f));
+    // StartCoroutine(RotateObject());
   }
 
-  IEnumerator RotateObject()
+  public IEnumerator RotateObject()
   {
-    float slowRatio=Random.Range(slowRatioMin,slowRatioMax);
+    float slowRatio = Random.Range(slowRatioMin, slowRatioMax);
     Debug.Log(slowRatio);
     float timeElapsed = 0;
     while (true)
@@ -27,9 +33,20 @@ public class SpinDish : MonoBehaviour
       {
         transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
       }
+      else if (stop)
+      {
+        rotationSpeed -= Time.deltaTime * slowRatio;
+        if (rotationSpeed <= 0)
+        {
+          rotationSpeed = 0;
+          yield break;
+        }
+        transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+      }
       else
       {
-        rotationSpeed -= Time.deltaTime*slowRatio;
+        GameManager.gm.eventCtrl.stopBtn.interactable=false;//停止按鈕取消互動
+        rotationSpeed -= Time.deltaTime * slowRatio;
         if (rotationSpeed <= 0)
         {
           rotationSpeed = 0;
@@ -40,11 +57,4 @@ public class SpinDish : MonoBehaviour
       yield return null;
     }
   }
-
-  void Spin()
-  {
-    // 開始旋轉協程
-    StartCoroutine(RotateObject());
-  }
-
 }

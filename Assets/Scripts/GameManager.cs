@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
   }
   void Start()
   {
-    Call_ChangeGameState(Status.setPrize);    
+    Call_ChangeGameState(Status.setPrize);
   }
 
   public void Call_ChangeGameState(Status currentGameState) //外部呼叫-----改變流程
@@ -45,9 +45,11 @@ public class GameManager : MonoBehaviour
         break;
       case Status.rolling:
         nowGameStatus = Status.rolling;
+        eventCtrl.Rolling_Event();
         break;
       case Status.stop:
         nowGameStatus = Status.stop;
+        eventCtrl.StopRoll_Event();
         break;
       case Status.result:
         nowGameStatus = Status.result;

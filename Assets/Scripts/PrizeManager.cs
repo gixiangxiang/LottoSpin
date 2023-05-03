@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public struct PrizeItem
+public class PrizeItem
 {
   public string prizeName;
   public float ratio;
@@ -69,7 +69,7 @@ public class PrizeManager : MonoBehaviour
     else
     {
       warningTxt.text = "最多12個獎品";
-      StartCoroutine(ShowAndHide(warningTxt.gameObject,2f));
+      StartCoroutine(ShowAndHide(warningTxt.gameObject, 2f));
     }
 
   }
@@ -85,7 +85,7 @@ public class PrizeManager : MonoBehaviour
     else
     {
       warningTxt.text = "最少2個獎品";
-      StartCoroutine(ShowAndHide(warningTxt.gameObject,2f));
+      StartCoroutine(ShowAndHide(warningTxt.gameObject, 2f));
     }
   }
 
@@ -98,6 +98,23 @@ public class PrizeManager : MonoBehaviour
       ratioItemPrefab.ratio.text = (prize.ratio * 100f).ToString("F2");
       PrizeItemPrefab prefab = Instantiate(ratioItemPrefab, ratioItemsParant);
       prefab.ratio.onEndEdit.AddListener(delegate { RatioRefreah(); });
+    }
+  }
+
+  public void UpdateRatio()
+  {
+    //獲取所有InputField物件
+    PrizeItemPrefab[] ratioItems = ratioItemsParant.GetComponentsInChildren<PrizeItemPrefab>();
+    InputField[] ratios = new InputField[ratioItems.Length];
+    for (int i = 0; i < ratioItems.Length; i++)
+    {
+      ratios[i] = ratioItems[i].ratio;
+    }
+
+    //更新比例至獎品清單
+    for (int i = 0; i < prizeItems.Count; i++)
+    {
+      prizeItems[i].ratio=float.Parse( ratios[i].text)/100f;
     }
   }
 

@@ -25,21 +25,17 @@ public class EventContoller : MonoBehaviour
   public void SetPrize_Event()
   {
     settingPanel.SetActive(true);
-    ratioPanel.SetActive(false);
     gamePanel.SetActive(false);
   }
 
   public void SetRatio_Event()
   {
-    settingPanel.SetActive(false);
     ratioPanel.SetActive(true);
     gamePanel.SetActive(false);
   }
 
   public void StartGame_Event()
   {
-    settingPanel.SetActive(false);
-    ratioPanel.SetActive(false);
     gamePanel.SetActive(true);
     startBtn.gameObject.SetActive(true);
     stopBtn.gameObject.SetActive(false);

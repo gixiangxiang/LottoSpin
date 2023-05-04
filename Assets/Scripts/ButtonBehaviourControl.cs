@@ -35,7 +35,7 @@ public class ButtonBehaviourControl : MonoBehaviour
   {
     GameManager.gm.Call_ChangeGameState(GameManager.Status.game);
     PrizeManager.prizeMana.UpdateRatio();
-  wheelManager.GetPrizeList();
+    wheelManager.GetPrizeList();
   }
   public void RatioCancel()
   {

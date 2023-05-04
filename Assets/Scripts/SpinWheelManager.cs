@@ -8,6 +8,7 @@ public class SpinWheelManager : MonoBehaviour
 
   public Image[] pieImages;
   public float[] values;
+  public PrizeItemPrefab[] prizeListItem;
 
   void Start()
   {
@@ -43,5 +44,17 @@ public class SpinWheelManager : MonoBehaviour
 
     }
     */
+  }
+
+  public void GetPrizeList()
+  {
+    for (int i = 0; i < PrizeManager.prizeMana.prizeItems.Count; i++)
+    {
+      prizeListItem[i].prizeName.text = PrizeManager.prizeMana.prizeItems[i].prizeName;
+    }
+    for (int i = PrizeManager.prizeMana.prizeItems.Count; i < prizeListItem.Length; i++)
+    {
+      prizeListItem[i].gameObject.SetActive(false);
+    }
   }
 }

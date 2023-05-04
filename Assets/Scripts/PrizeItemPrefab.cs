@@ -9,7 +9,8 @@ public class PrizeItemPrefab : MonoBehaviour
   public enum PrizePrefabType
   {
     設定面板預置物,
-    比例面板預置物
+    比例面板預置物,
+    遊戲頁面清單物品
   }
 
   public PrizePrefabType prefabType;

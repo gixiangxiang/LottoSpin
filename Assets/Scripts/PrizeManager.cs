@@ -114,7 +114,7 @@ public class PrizeManager : MonoBehaviour
     //更新比例至獎品清單
     for (int i = 0; i < prizeItems.Count; i++)
     {
-      prizeItems[i].ratio=float.Parse( ratios[i].text)/100f;
+      prizeItems[i].ratio = float.Parse(ratios[i].text) / 100f;
     }
   }
 
@@ -169,5 +169,5 @@ public class PrizeManager : MonoBehaviour
     obj.SetActive(false);
   }
 
-
+  
 }

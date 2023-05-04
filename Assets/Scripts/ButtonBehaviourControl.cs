@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonBehaviourControl : MonoBehaviour
 {
-  
+  public SpinWheelManager wheelManager;
 
   #region 設定獎品面板
   //增加獎品按鈕
@@ -35,6 +35,7 @@ public class ButtonBehaviourControl : MonoBehaviour
   {
     GameManager.gm.Call_ChangeGameState(GameManager.Status.game);
     PrizeManager.prizeMana.UpdateRatio();
+  wheelManager.GetPrizeList();
   }
   public void RatioCancel()
   {

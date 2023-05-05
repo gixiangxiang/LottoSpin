@@ -7,45 +7,23 @@ public class SpinWheelManager : MonoBehaviour
 {
 
   public Image[] pieImages;
-  public float[] values;
   public PrizeItemPrefab[] prizeListItem;
 
-  void Start()
-  {
-    SetValue(values);
-  }
-
-
-  public void SetValue(float[] valuesToSet)
+  //分配比例至轉盤
+  public void SetValue()
   {
     float totalValues = 0;
-    for (int i = 0; i < pieImages.Length; i++)
+    for (int i = 0; i < PrizeManager.prizeMana.prizeItems.Count; i++)
     {
-      totalValues += FindPercentage(valuesToSet, i);
+      totalValues += PrizeManager.prizeMana.prizeItems[i].ratio;
       pieImages[i].fillAmount = totalValues;
     }
+    for (int i = PrizeManager.prizeMana.prizeItems.Count; i < pieImages.Length; i++)
+    {
+      pieImages[i].gameObject.SetActive(false);
+    }
   }
-
-  float FindPercentage(float[] valuesToSet, int index)
-  {
-    float totalAmount = 0;
-    for (int i = 0; i < valuesToSet.Length; i++)
-    {
-      totalAmount += valuesToSet[i];
-    }
-    return valuesToSet[index] / totalAmount;
-    /*
-    if (totalAmount == 100)
-    {
-      return valuesToSet[index] / totalAmount;
-    }
-    else
-    {
-
-    }
-    */
-  }
-
+  //獲取獎品清單顯示在列表中
   public void GetPrizeList()
   {
     for (int i = 0; i < PrizeManager.prizeMana.prizeItems.Count; i++)
@@ -57,4 +35,7 @@ public class SpinWheelManager : MonoBehaviour
       prizeListItem[i].gameObject.SetActive(false);
     }
   }
+
+
+
 }

@@ -33,8 +33,9 @@ public class ButtonBehaviourControl : MonoBehaviour
   #region 設定比例面板
   public void RatioConfirm()
   {
-    GameManager.gm.Call_ChangeGameState(GameManager.Status.game);
     PrizeManager.prizeMana.UpdateRatio();
+    GameManager.gm.Call_ChangeGameState(GameManager.Status.game);
+    wheelManager.SetValue();
     wheelManager.GetPrizeList();
   }
   public void RatioCancel()

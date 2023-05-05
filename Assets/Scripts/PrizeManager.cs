@@ -101,6 +101,7 @@ public class PrizeManager : MonoBehaviour
     }
   }
 
+//遊戲開始，傳送比例至獎品清單
   public void UpdateRatio()
   {
     //獲取所有InputField物件
@@ -118,7 +119,7 @@ public class PrizeManager : MonoBehaviour
     }
   }
 
-  //刪除比例物件
+  //返回設定畫面，刪除比例物件
   public void DestroyRatioChild()
   {
     if (ratioItemsParant.childCount > 0)

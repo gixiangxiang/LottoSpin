@@ -17,25 +17,25 @@ public class EventContoller : MonoBehaviour
   public Button startBtn;
   [Header("停止按鈕")]
   public Button stopBtn;
+  [Header("返回按鈕")]
+  public Button backBtn;
   [Header("轉盤腳本")]
   public SpinDish dish;
   [SerializeField] int showStop = 5;
 
 
   public void SetPrize_Event()
-  {
-    gamePanel.SetActive(false);
+  {    
+    stopBtn.gameObject.SetActive(false);
   }
 
   public void SetRatio_Event()
   {
-    gamePanel.SetActive(false);
+    stopBtn.gameObject.SetActive(false);
   }
 
   public void StartGame_Event()
   {
-    
-    gamePanel.SetActive(true);
     startBtn.gameObject.SetActive(true);
     stopBtn.gameObject.SetActive(false);
   }
@@ -45,8 +45,9 @@ public class EventContoller : MonoBehaviour
     startBtn.gameObject.SetActive(false);
     stopBtn.gameObject.SetActive(true);
     stopBtn.interactable = false;
+    backBtn.interactable = false;
     StartCoroutine(dish.RotateObject());
-    StartCoroutine(WaitSecond());    
+    StartCoroutine(WaitSecond());
   }
 
   public void StopRoll_Event()
@@ -55,8 +56,15 @@ public class EventContoller : MonoBehaviour
     dish.stop = true;
   }
 
+  public void Result_Event()
+  {
+    startBtn.gameObject.SetActive(true);
+    stopBtn.gameObject.SetActive(false);
+    backBtn.interactable = true;
+  }
+
   public IEnumerator WaitSecond()
-  {    
+  {
     while (showStop > 0)
     {
       showStop--;
@@ -66,5 +74,5 @@ public class EventContoller : MonoBehaviour
   }
 
 
-  
+
 }

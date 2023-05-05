@@ -39,6 +39,7 @@ public class SpinDish : MonoBehaviour
         if (rotationSpeed <= 0)
         {
           rotationSpeed = 0;
+          GameManager.gm.Call_ChangeGameState(GameManager.Status.result);
           yield break;
         }
         transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
@@ -50,6 +51,7 @@ public class SpinDish : MonoBehaviour
         if (rotationSpeed <= 0)
         {
           rotationSpeed = 0;
+          GameManager.gm.Call_ChangeGameState(GameManager.Status.result);
           yield break;
         }
         transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);

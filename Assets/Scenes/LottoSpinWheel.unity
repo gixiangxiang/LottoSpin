@@ -587,7 +587,7 @@ RectTransform:
   - {fileID: 1292785994}
   - {fileID: 942674116}
   m_Father: {fileID: 2097352911}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7049788, g: 0.6963332, b: 0.9056604, a: 0.6666667}
+  m_Color: {r: 0.7049788, g: 0.6963332, b: 0.9056604, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2287,19 +2287,6 @@ MonoBehaviour:
   - {fileID: 958599611}
   - {fileID: 1260895709}
   - {fileID: 1157982233}
-  values:
-  - 40
-  - 30
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
-  - 50
   prizeListItem:
   - {fileID: 1169751317}
   - {fileID: 1909695319}
@@ -4495,7 +4482,7 @@ RectTransform:
   - {fileID: 458803911}
   - {fileID: 1408531440}
   m_Father: {fileID: 2097352911}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5267,6 +5254,7 @@ MonoBehaviour:
   gamePanel: {fileID: 99861835}
   startBtn: {fileID: 254897031}
   stopBtn: {fileID: 1215384452}
+  backBtn: {fileID: 1292785995}
   dish: {fileID: 184922489}
   showStop: 5
 --- !u!114 &1160384233
@@ -6056,6 +6044,42 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1292785998}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HideBtn
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 254897034}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HideBtn
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2085861773}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ShowRatio
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1292785996
@@ -8820,7 +8844,7 @@ RectTransform:
   - {fileID: 1897861673}
   - {fileID: 498518282}
   m_Father: {fileID: 2097352911}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9059,9 +9083,9 @@ RectTransform:
   m_Children:
   - {fileID: 1917894912}
   - {fileID: 815735139}
+  - {fileID: 99861836}
   - {fileID: 959697034}
   - {fileID: 2085861770}
-  - {fileID: 99861836}
   - {fileID: 2122066572}
   m_Father: {fileID: 0}
   m_RootOrder: 1

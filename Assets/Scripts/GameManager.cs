@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         break;
       case Status.result:
         nowGameStatus = Status.result;
+        eventCtrl.Result_Event();
         break;
     }
   }

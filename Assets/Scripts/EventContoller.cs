@@ -65,9 +65,10 @@ public class EventContoller : MonoBehaviour
 
   public IEnumerator WaitSecond()
   {
-    while (showStop > 0)
+    int showStopTime = showStop;
+    while (showStopTime > 0)
     {
-      showStop--;
+      showStopTime--;
       yield return new WaitForSeconds(1);
     }
     stopBtn.interactable = true;

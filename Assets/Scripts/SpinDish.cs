@@ -26,35 +26,36 @@ public class SpinDish : MonoBehaviour
     float slowRatio = Random.Range(slowRatioMin, slowRatioMax);
     Debug.Log(slowRatio);
     float timeElapsed = 0;
+    float speed = rotationSpeed;
     while (true)
     {
       timeElapsed += Time.deltaTime;
       if (timeElapsed < timer)
       {
-        transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, -speed * Time.deltaTime);
       }
       else if (stop)
       {
-        rotationSpeed -= Time.deltaTime * slowRatio;
-        if (rotationSpeed <= 0)
+        speed -= Time.deltaTime * slowRatio;
+        if (speed <= 0)
         {
-          rotationSpeed = 0;
+          speed = 0;
           GameManager.gm.Call_ChangeGameState(GameManager.Status.result);
           yield break;
         }
-        transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, -speed * Time.deltaTime);
       }
       else
       {
         GameManager.gm.eventCtrl.stopBtn.interactable=false;//停止按鈕取消互動
-        rotationSpeed -= Time.deltaTime * slowRatio;
-        if (rotationSpeed <= 0)
+        speed -= Time.deltaTime * slowRatio;
+        if (speed <= 0)
         {
-          rotationSpeed = 0;
+          speed = 0;
           GameManager.gm.Call_ChangeGameState(GameManager.Status.result);
           yield break;
         }
-        transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, -speed * Time.deltaTime);
       }
       yield return null;
     }
